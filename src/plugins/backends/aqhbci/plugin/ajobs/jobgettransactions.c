@@ -480,7 +480,8 @@ int AH_Job_GetTransactionsCreditCard_Process(AH_JOB *j, AB_IMEXPORTER_CONTEXT *c
   dbResponses=AH_Job_GetResponses(j);
   assert(dbResponses);
   DBG_INFO(AQHBCI_LOGDOMAIN, "Response:");
-  GWEN_DB_Dump(dbResponses, 2);
+  if (GWEN_LoggerLevel_Info<=GWEN_Logger_GetLevel(AQHBCI_LOGDOMAIN))
+    GWEN_DB_Dump(dbResponses, 2);
   DBG_INFO(AQHBCI_LOGDOMAIN, "Response end");
 
 
